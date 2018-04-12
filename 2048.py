@@ -5,7 +5,7 @@ poz = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 score = 0
 while True:
-    os.system('cls')                    #os.system('clear')
+    os.system('cls')
     i=0
     t=0
     while (i<16):
@@ -80,6 +80,10 @@ while True:
                 poz[i+4]=0
                 poz[i+12]=0
                 score = score + poz[i]
+            elif (poz[i+12]!=poz[i+4] and poz[i+8]==0 and poz[i]==0 and poz[i+12]!=0 and poz[i+4]!=0):
+                poz[i]=poz[i+4]
+                poz[i+4]=poz[i+12]
+                poz[i+12]=0
             elif (poz[i+12]==poz[i+8] and poz[i]==0 and poz[i+4]==0 and poz[i+8]!=0):
                 poz[i]=poz[i+12]*2
                 poz[i+8]=0
@@ -110,6 +114,12 @@ while True:
                 poz[i+8]=0
                 poz[i+12]=0
                 score = score + poz[i+4]
+            elif (poz[i]==poz[i+4] and poz[i+8]!=0 and poz[i]!=0):
+                poz[i]=poz[i]*2
+                poz[i+4]=poz[i+8]
+                poz[i+8]=poz[i+12]
+                poz[i+12]=0
+                score = score + poz[i]
             elif (poz[i+8]==poz[i] and poz[i+4]==0 and poz[i]!=0):
                 poz[i]=poz[i]*2
                 poz[i+8]=0
@@ -193,6 +203,10 @@ while True:
                 poz[i+8]=0
                 poz[i]=0
                 score = score + poz[i+12]
+            elif (poz[i]!=poz[i+8] and poz[i+12]==0 and poz[i+4]==0 and poz[i+8]!=0 and poz[i]!=0):
+                poz[i+12]=poz[i+8]
+                poz[i+8]=poz[i]
+                poz[i]=0
             elif (poz[i]==poz[i+4] and poz[i+12]==0 and poz[i+8]==0 and poz[i+4]!=0):
                 poz[i+12]=poz[i]*2
                 poz[i+4]=0
@@ -223,6 +237,12 @@ while True:
                 poz[i+4]=0
                 poz[i]=0
                 score = score + poz[i+8]
+            elif (poz[i+12]==poz[i+8] and poz[i+4]!=0 and poz[i+12]!=0):
+                poz[i+12]=poz[i+12]*2
+                poz[i+8]=poz[i+4]
+                poz[i+4]=poz[i]
+                poz[i]=0
+                score = score + poz[i+12]
             elif (poz[i+4]==poz[i+12] and poz[i+8]==0 and poz[i+12]!=0):
                 poz[i+12]=poz[i+12]*2
                 poz[i+4]=0
@@ -307,6 +327,10 @@ while True:
                 poz[i+2]=0
                 poz[i]=0
                 score = score + poz[i+3]
+            elif (poz[i+2]!=poz[i] and poz[i+1]==0 and poz[i+3]==0 and poz[i+2]!=0 and poz[i]!=0):
+                poz[i+3]=poz[i+2]
+                poz[i+2]=poz[i]
+                poz[i]=0
             elif (poz[i]==poz[i+1] and poz[i+3]==0 and poz[i+2]==0 and poz[i+1]!=0):
                 poz[i+3]=poz[i]*2
                 poz[i+1]=0
@@ -337,6 +361,12 @@ while True:
                 poz[i+1]=0
                 poz[i]=0
                 score = score + poz[i+2]
+            elif (poz[i+3]==poz[i+2] and poz[i+1]!=0 and poz[i+3]!=0):
+                poz[i+3]=poz[i+3]*2
+                poz[i+2]=poz[i+1]
+                poz[i+1]=poz[i]
+                poz[i]=0
+                score = score + poz[i+3]
             elif (poz[i+1]==poz[i+3] and poz[i+2]==0 and poz[i+3]!=0):
                 poz[i+3]=poz[i+3]*2
                 poz[i+1]=0
@@ -420,6 +450,10 @@ while True:
                 poz[i+1]=0
                 poz[i+3]=0
                 score = score + poz[i]
+            elif (poz[i+1]!=poz[i+3] and poz[i]==0 and poz[i+2]==0 and poz[i+1]!=0 and poz[i+3]!=0):
+                poz[i]=poz[i+1]
+                poz[i+1]=poz[i+3]
+                poz[i+3]=0
             elif (poz[i+3]==poz[i+2] and poz[i]==0 and poz[i+1]==0 and poz[i+2]!=0):
                 poz[i]=poz[i+3]*2
                 poz[i+2]=0
@@ -450,6 +484,12 @@ while True:
                 poz[i+2]=0
                 poz[i+3]=0
                 score = score + poz[i+1]
+            elif (poz[i]==poz[i+1] and poz[i+2]!=0 and poz[i]!=0):
+                poz[i]=poz[i]*2
+                poz[i+1]=poz[i+2]
+                poz[i+2]=poz[i+3]
+                poz[i+3]=0
+                score = score + poz[i]
             elif (poz[i+2]==poz[i] and poz[i+1]==0 and poz[i]!=0):
                 poz[i]=poz[i]*2
                 poz[i+2]=0
