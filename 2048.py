@@ -5,6 +5,7 @@ poz = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 score = 0
 blok=0
+win = 0
 
 while True:
     os.system('cls')
@@ -69,13 +70,29 @@ while True:
         2. EXIT
         """)
         w = input()
-        if (w=='1' or w=='1.' or w.lower()=='restart' or w.lower()=='r'):
+        if (w == '1' or  w== '1.' or w.lower() == 'restart' or w.lower() == 'r'):
             score = 0
             blok = 0
             poz = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             os.system('cls')
         else:
             exit()
+
+    z = 0
+    while (z < 16):
+        if (poz[z]==2048 and win==0):
+            os.system('cls')
+            print ("""
+            Victory!
+        1. CONTINUE
+        2. EXIT            
+            """)
+            b = input()
+            if (b == '1' or b == '1.' or b.lower() == 'continue' or b.lower() == 'c'):
+                win = 1
+            else:
+                exit()
+        z = z+1
 
     brojevi = [2, 2, 2, 2, 4]
     r_broj = random.choice(brojevi)
