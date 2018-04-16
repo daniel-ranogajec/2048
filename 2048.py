@@ -39,7 +39,6 @@ while True:
         try:
             with open('highscore.txt', 'r') as rf:
                 for line in rf:
-                    #line_ = line.lstrip('0')
                     lista.append(line)
         except Exception:
             f = open('highscore.txt', 'w')
@@ -80,19 +79,25 @@ while True:
 
     z = 0
     while (z < 16):
-        if (poz[z]==2048 and win==0):
+        if (poz[z] == 2048 and win == 0):
             os.system('cls')
             print ("""
             Victory!
         1. CONTINUE
-        2. EXIT            
+        2. RESTART
+        3. EXIT            
             """)
             b = input()
             if (b == '1' or b == '1.' or b.lower() == 'continue' or b.lower() == 'c'):
                 win = 1
+            elif (b == '2' or b == '2.' or b.lower() == 'restart' or b.lower() == 'r'):
+                score = 0
+                blok = 0
+                poz = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                os.system('cls')
             else:
                 exit()
-        z = z+1
+        z = z + 1
 
     brojevi = [2, 2, 2, 2, 4]
     r_broj = random.choice(brojevi)
@@ -768,5 +773,7 @@ while True:
                 poz[i + 3] = 0
             else:
                 blok = blok + 1
+    elif (x == '0' or x.lower() == 'exit'):
+        exit()
     else:
         blok = 4
