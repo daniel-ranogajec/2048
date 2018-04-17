@@ -35,6 +35,7 @@ while True:
             score_ = f'0{score}'
         else:
             score_ = score
+
         lista = []
         try:
             with open('highscore.txt', 'r') as rf:
@@ -49,10 +50,12 @@ while True:
         with open('highscore.txt', 'w') as wf:
             for line in s:
                 wf.write(line)
+
         lista_ = []
         for el in s:
             el_ = el.lstrip('0')
             lista_.append(el_)
+
         num = 0
         kk = 10
         if (len(lista) < 10):
@@ -114,21 +117,29 @@ while True:
 
     m = 0
     max = 0
-    while (m<16):
+    while (m < 16):
         if (max < poz[m]):
             max = poz[m]
         m = m+1
 
     if (max < 10):
         a = '*************************'
+        n = 0
+        poz_ = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        while (n<16):
+            if poz[n] == 0:
+                poz_[n] = ' '
+            else:
+                poz_[n]=poz[n]
+            n=n+1
         print(a)
-        print('* ', poz[0], ' * ', poz[1], ' * ', poz[2], ' * ', poz[3], ' *')
+        print('* ', poz_[0], ' * ', poz_[1], ' * ', poz_[2], ' * ', poz_[3], ' *')
         print(a)
-        print('* ', poz[4], ' * ', poz[5], ' * ', poz[6], ' * ', poz[7], ' *')
+        print('* ', poz_[4], ' * ', poz_[5], ' * ', poz_[6], ' * ', poz_[7], ' *')
         print(a)
-        print('* ', poz[8], ' * ', poz[9], ' * ', poz[10], ' * ', poz[11], ' *')
+        print('* ', poz_[8], ' * ', poz_[9], ' * ', poz_[10], ' * ', poz_[11], ' *')
         print(a)
-        print('* ', poz[12], ' * ', poz[13], ' * ', poz[14], ' * ', poz[15], ' *')
+        print('* ', poz_[12], ' * ', poz_[13], ' * ', poz_[14], ' * ', poz_[15], ' *')
         print(a)
 
     elif (max > 10 and max < 100):
@@ -136,7 +147,9 @@ while True:
         n=0
         poz_ = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         while (n<16):
-            if poz[n]<10:
+            if poz[n] == 0:
+                poz_[n] = '  '
+            elif poz[n] < 10:
                 poz_[n] = f' {poz[n]}'
             else:
                 poz_[n]=poz[n]
@@ -156,7 +169,9 @@ while True:
         n = 0
         poz_ = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         while (n < 16):
-            if poz[n] < 10:
+            if poz[n] == 0:
+                poz_[n] = '   '
+            elif poz[n] < 10:
                 poz_[n] = f' {poz[n]} '
             elif (poz[n]>10 and poz[n]<100):
                 poz_[n] = f' {poz[n]}'
@@ -178,7 +193,9 @@ while True:
         n = 0
         poz_ = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         while (n < 16):
-            if poz[n] < 10:
+            if poz[n] == 0:
+                poz_[n] = '    '
+            elif poz[n] < 10:
                 poz_[n] = f'  {poz[n]} '
             elif (poz[n]>10 and poz[n]<100):
                 poz_[n] = f' {poz[n]} '
@@ -196,12 +213,15 @@ while True:
         print(a)
         print('* ', poz_[12], ' * ', poz_[13], ' * ', poz_[14], ' * ', poz_[15], ' *')
         print(a)
+
     else:
         a = '*****************************************'
         n = 0
         poz_ = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         while (n < 16):
-            if poz[n] < 10:
+            if poz[n] == 0:
+                poz_[n] = '     '
+            elif poz[n] < 10:
                 poz_[n] = f'  {poz[n]}  '
             elif (poz[n] > 10 and poz[n] < 100):
                 poz_[n] = f'  {poz[n]} '
