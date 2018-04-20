@@ -4,8 +4,11 @@ import os
 poz = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 score = 0
-blok=0
+blok = 0
 win = 0
+undo = []
+undo_s = []
+br = 0
 
 while True:
     os.system('cls')
@@ -113,6 +116,13 @@ while True:
                 poz[rand] = r_broj
                 n = 1
 
+    u = 0
+    if (blok < 4):
+        while (u < 16):
+            undo.append(poz[u])
+            u = u + 1
+            br = br + 1
+        undo_s.append(score)
     blok = 0
 
     m = 0
@@ -120,18 +130,18 @@ while True:
     while (m < 16):
         if (max < poz[m]):
             max = poz[m]
-        m = m+1
+        m = m + 1
 
     if (max < 10):
         a = '*************************'
         n = 0
         poz_ = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        while (n<16):
+        while (n < 16):
             if poz[n] == 0:
                 poz_[n] = ' '
             else:
-                poz_[n]=poz[n]
-            n=n+1
+                poz_[n] = poz[n]
+            n = n + 1
         print(a)
         print('* ', poz_[0], ' * ', poz_[1], ' * ', poz_[2], ' * ', poz_[3], ' *')
         print(a)
@@ -795,5 +805,20 @@ while True:
                 blok = blok + 1
     elif (x == '0' or x.lower() == 'exit'):
         exit()
+    elif ( x.lower() == 'r' or x.lower() == 'restart'):
+        score = 0
+        blok = 0
+        poz = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        os.system('cls')
+    elif (x.lower() == 'u' or x.lower() == 'undo'):
+        u = 0
+        br = br - 16
+        score = undo_s[((br+1)//16)-1]
+        while (u < 16):
+            poz[u] = undo[br-16+u]
+            undo.pop()
+            u = u + 1
+        blok = 4
+        undo_s.pop()
     else:
         blok = 4
